@@ -128,13 +128,9 @@ builder.Services.AddScoped<IPostRejectionCommentService, PostRejectionCommentSer
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogAPI V1"));
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogAPI V1"));
-}
 
 app.AddErrorHandler();
 
